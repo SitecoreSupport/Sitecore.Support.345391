@@ -16,7 +16,10 @@ namespace Sitecore.Support.ExperienceEditor.Speak.Ribbon.Requests.LockItem
 
         private bool CanLock(Item item)
         {
-            return !(!TemplateManager.IsFieldPartOfTemplate(FieldIDs.Workflow, item) | !TemplateManager.IsFieldPartOfTemplate(FieldIDs.WorkflowState, item)) && item.Access.CanWrite() && item.Access.CanWriteLanguage() && (Sitecore.Context.IsAdministrator || !item.Locking.IsLocked() || item.Locking.HasLock()) && (item.Locking.CanLock() | item.Locking.CanUnlock()) && !item.Appearance.ReadOnly;
+            #region sitecore.support.345391
+            return !(!TemplateManager.IsFieldPartOfTemplate(FieldIDs.Workflow, item) | !TemplateManager.IsFieldPartOfTemplate(FieldIDs.WorkflowState, item)) && !Args.Data.Contains("exm=1") && item.Access.CanWrite() && item.Access.CanWriteLanguage() && (Sitecore.Context.IsAdministrator || !item.Locking.IsLocked() || item.Locking.HasLock()) && (item.Locking.CanLock() | item.Locking.CanUnlock()) && !item.Appearance.ReadOnly;
+            //return !(!TemplateManager.IsFieldPartOfTemplate(FieldIDs.Workflow, item) | !TemplateManager.IsFieldPartOfTemplate(FieldIDs.WorkflowState, item)) && item.Access.CanWrite() && item.Access.CanWriteLanguage() && (Sitecore.Context.IsAdministrator || !item.Locking.IsLocked() || item.Locking.HasLock()) && (item.Locking.CanLock() | item.Locking.CanUnlock()) && !item.Appearance.ReadOnly;
+            #endregion
         }
     }
 }
