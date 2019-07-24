@@ -41,6 +41,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Sitecore.ExperienceEditor, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SC.Sitecore.ExperienceEditor.8.2.2\lib\Sitecore.ExperienceEditor.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Sitecore.ExperienceEditor.Speak, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SC.Sitecore.ExperienceEditor.Speak.8.2.2\lib\Sitecore.ExperienceEditor.Speak.dll</HintPath>
       <Private>False</Private>
@@ -56,11 +60,15 @@
     <Reference Include="System.Configuration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExperienceEditor\Speak\Ribbon\Requests\AddRendering\CanAddRendering.cs" />
+    <Compile Include="ExperienceEditor\Speak\Ribbon\Requests\LayoutDetails\CanEditLayoutDetails.cs" />
     <Compile Include="ExperienceEditor\Speak\Ribbon\Requests\LockItem\CanToggleLockRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Config\Include\zzz\Sitecore.Support.345391.config" />
+    <Content Include="App_Config\Include\zzz\Sitecore.Support.345391.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
