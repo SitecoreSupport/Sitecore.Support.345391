@@ -19,7 +19,7 @@ namespace Sitecore.Support.ExperienceEditor.Speak.Ribbon.Requests.AddRendering
             base.RequestContext.ValidateContextItem();
             #region sitecore.support.345391
             //if (base.RequestContext.WebEditMode != "edit" || !WebEditUtil.CanDesignItem(base.RequestContext.Item) || base.RequestContext.Item.IsFallback || ItemUtility.RequireLockToEdit(base.RequestContext.Item))
-            if ((base.RequestContext.WebEditMode != "edit" || !WebEditUtil.CanDesignItem(base.RequestContext.Item) || base.RequestContext.Item.IsFallback || ItemUtility.RequireLockToEdit(base.RequestContext.Item))&& (base.RequestContext.Item.Name!="Message Root")||base.RequestContext.Item.Branch==null)
+            if ((base.RequestContext.WebEditMode != "edit" || !WebEditUtil.CanDesignItem(base.RequestContext.Item) || base.RequestContext.Item.IsFallback || ItemUtility.RequireLockToEdit(base.RequestContext.Item))&& (base.RequestContext.Item.Name.Contains("Message Root"))||base.RequestContext.Item.Branch==null)
             #endregion sitecore.support.345391
             {
                 return false;
