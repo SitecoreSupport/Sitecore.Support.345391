@@ -18,12 +18,17 @@ namespace Sitecore.Support.ExperienceEditor.Speak.Ribbon.Requests.AddRendering
             }
             base.RequestContext.ValidateContextItem();
             #region sitecore.support.345391
-            //if (base.RequestContext.WebEditMode != "edit" || !WebEditUtil.CanDesignItem(base.RequestContext.Item) || base.RequestContext.Item.IsFallback || ItemUtility.RequireLockToEdit(base.RequestContext.Item))
-            if ((base.RequestContext.WebEditMode != "edit" || !WebEditUtil.CanDesignItem(base.RequestContext.Item) || base.RequestContext.Item.IsFallback || ItemUtility.RequireLockToEdit(base.RequestContext.Item))&& (!base.RequestContext.Item.Name.Contains("Message Root"))||base.RequestContext.Item.Branch==null)
-            #endregion sitecore.support.345391
+            if (base.RequestContext.WebEditMode != "edit" || !WebEditUtil.CanDesignItem(base.RequestContext.Item) || base.RequestContext.Item.IsFallback || ItemUtility.RequireLockToEdit(base.RequestContext.Item))
             {
-                return false;
+                //{
+                //    return false;
+                //}
+                if (!base.RequestContext.Item.Name.Contains("Message Root") && base.RequestContext.Item.Branch == null)
+                {
+                    return false;
+                }                
             }
+            #endregion sitecore.support.345391
             string str = "design";
             string @string = Registry.GetString("/Current_User/Page Editor/Capability/" + str, Sitecore.ExperienceEditor.Constants.Registry.CheckboxTickedRegistryValue);
             return !(@string == Sitecore.ExperienceEditor.Constants.Registry.CheckboxUnTickedRegistryValue);
